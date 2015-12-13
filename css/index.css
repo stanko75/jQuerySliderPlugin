@@ -1,5 +1,9 @@
-#imagesTrack {
+#container {
     width: 100%;
     overflow: hidden;
+}
+
+.imagesTrack {
     white-space: nowrap;
+    position: relative;
 }
