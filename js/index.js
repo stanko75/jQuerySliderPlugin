@@ -3,8 +3,8 @@
     "use strict";
     jQuery.getJSON("files.json", function (data) {
         var myQ = jQuery,
-            firstHalfRight = 0,
-            secondHalfRight = 0,
+            firstHalfRightPosition = 0,
+            secondHalfRightPosition = 0,
             px,
             firstHalf = "first-half",
             secondHalf = "second-half",
@@ -28,26 +28,26 @@
 
         widthOfFirstHalf = myQ("img").eq(0).width() * myQ(firstHalfId).children().length;
         widthOfSecondHalf = myQ("img").eq(0).width() * myQ(secondHalfId).children().length;
-        secondHalfRight = -10;
+        secondHalfRightPosition = -10;
 
         setInterval(function () {
-            px = firstHalfRight + "px";
+            px = firstHalfRightPosition + "px";
             myQ(firstHalfId).css("right", px);
-            firstHalfRight = firstHalfRight + 1;
+            firstHalfRightPosition = firstHalfRightPosition + 1;
 
-            px = secondHalfRight + "px";
+            px = secondHalfRightPosition + "px";
             myQ(secondHalfId).css("right", px);
-            secondHalfRight = secondHalfRight + 1;
-
+            secondHalfRightPosition = secondHalfRightPosition + 1;
+/*
             myQ(firstHalfId).children().eq(2).css("border", "14px solid #333");
             myQ(firstHalfId).children().eq(1).css("border", "");
-
-            if (firstHalfRight > widthOfFirstHalf + myQ(window).width()) {
-                firstHalfRight = widthOfSecondHalf + myQ(window).width() - 20;
+*/
+            if (firstHalfRightPosition === widthOfFirstHalf + 10) {
+                firstHalfRightPosition = -1 * (secondHalfRightPosition) - 10;
             }
 
-            if (secondHalfRight > widthOfSecondHalf + widthOfFirstHalf + myQ(window).width() + 10) {
-                secondHalfRight = firstHalfRight - 10;
+            if (secondHalfRightPosition === widthOfFirstHalf + widthOfSecondHalf + 10) {
+                secondHalfRightPosition = -1 * firstHalfRightPosition - 10;
             }
 
         }, 1);
