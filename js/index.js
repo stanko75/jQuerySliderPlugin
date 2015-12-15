@@ -11,7 +11,8 @@
             firstHalfId = "#" + firstHalf,
             secondHalfId = "#" + secondHalf,
             widthOfFirstHalf = 0,
-            widthOfSecondHalf = 0;
+            widthOfSecondHalf = 0,
+            spaceBetweenTwoHalfs = 10;
 
         myQ("<span class='imagesTrack' id='" + firstHalf + "'/>").appendTo("#container");
         myQ("<span class='imagesTrack' id='" + secondHalf + "'/>").appendTo("#container");
@@ -28,7 +29,7 @@
 
         widthOfFirstHalf = myQ("img").eq(0).width() * myQ(firstHalfId).children().length;
         widthOfSecondHalf = myQ("img").eq(0).width() * myQ(secondHalfId).children().length;
-        secondHalfRightPosition = -10;
+        secondHalfRightPosition = -spaceBetweenTwoHalfs;
 
         setInterval(function () {
             px = firstHalfRightPosition + "px";
@@ -39,12 +40,12 @@
             myQ(secondHalfId).css("right", px);
             secondHalfRightPosition = secondHalfRightPosition + 1;
 
-            if (firstHalfRightPosition === widthOfFirstHalf + 10) {
-                firstHalfRightPosition = -1 * secondHalfRightPosition - 10;
+            if (firstHalfRightPosition === widthOfFirstHalf + spaceBetweenTwoHalfs) {
+                firstHalfRightPosition = -1 * secondHalfRightPosition - spaceBetweenTwoHalfs;
             }
 
-            if (secondHalfRightPosition === widthOfFirstHalf + widthOfSecondHalf + 10) {
-                secondHalfRightPosition = -1 * firstHalfRightPosition - 10;
+            if (secondHalfRightPosition === widthOfFirstHalf + widthOfSecondHalf + spaceBetweenTwoHalfs) {
+                secondHalfRightPosition = -1 * firstHalfRightPosition - spaceBetweenTwoHalfs;
             }
 
         }, 1);
