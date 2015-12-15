@@ -38,12 +38,9 @@
             px = secondHalfRightPosition + "px";
             myQ(secondHalfId).css("right", px);
             secondHalfRightPosition = secondHalfRightPosition + 1;
-/*
-            myQ(firstHalfId).children().eq(2).css("border", "14px solid #333");
-            myQ(firstHalfId).children().eq(1).css("border", "");
-*/
+
             if (firstHalfRightPosition === widthOfFirstHalf + 10) {
-                firstHalfRightPosition = -1 * (secondHalfRightPosition) - 10;
+                firstHalfRightPosition = -1 * secondHalfRightPosition - 10;
             }
 
             if (secondHalfRightPosition === widthOfFirstHalf + widthOfSecondHalf + 10) {
