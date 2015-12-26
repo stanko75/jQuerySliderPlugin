@@ -27,11 +27,12 @@
             }
         });
 
-        widthOfFirstHalf = myQ("img").eq(0).width() * myQ(firstHalfId).children().length;
-        widthOfSecondHalf = myQ("img").eq(0).width() * myQ(secondHalfId).children().length;
         secondHalfRightPosition = -spaceBetweenTwoHalfs;
 
         setInterval(function () {
+            widthOfFirstHalf = myQ("#first-half").width();
+            widthOfSecondHalf = myQ("#second-half").width();
+
             px = firstHalfRightPosition + "px";
             myQ(firstHalfId).css("right", px);
             firstHalfRightPosition = firstHalfRightPosition + 1;
